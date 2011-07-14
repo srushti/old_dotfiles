@@ -2,7 +2,7 @@ require 'rake'
 
 FILES = %w(ackrc editrc gemrc irbrc zshrc)
 
-desc "Install the files into ~/.vim"
+desc "Copy the files as ~/.*rc"
 task :install do
   FILES.each do |file|
     #p file, File.join(ENV['HOME'], ".#{file}")
