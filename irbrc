@@ -57,18 +57,13 @@ elsif defined?(Rails)
   IRB.conf[:PROMPT_MODE] = :CUSTOM
 end
 
-# We can also define convenient methods (credits go to thoughtbot)
-def me
-  User.find_by_email("me@gmail.com")
-end
-
 class Object
   def _methods
-    methods - Object.methods
+    (methods - Object.methods).sort
   end
 
   def _instance_methods
-    instance_methods - Object.new.methods
+    (instance_methods - Object.new.methods).sort
   end
 end
 
