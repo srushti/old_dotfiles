@@ -149,6 +149,9 @@ function sc { rails_command "console" "$@" }
 function sg { rails_command "generate" "$@" }
 
 alias ep="vim ~/.zshrc && source ~/.zshrc"
+if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+fi
 alias mig="script/generate migration"
 alias srebase="ls > temp.file.for.stashing && git add temp.file.for.stashing && git sh save && git svn rebase && git sh pop && git rm -f temp.file.for.stashing"
 alias sdcommit="ls > temp.file.for.stashing && git add temp.file.for.stashing && git sh save && git svn dcommit && git sh pop && git rm -f temp.file.for.stashing"
