@@ -1,6 +1,7 @@
 export LC_ALL=en_US.UTF-8
 export PKGCONFIG_PATH="/usr/local/lib/pkgconfig:/opt/local/lib/pkgconfig"
 export PATH=$PATH:/opt/local/bin:/usr/local/mysql/bin/
+export PATH=$PATH:~/.bin
 export SVN_EDITOR="vim"
 export MANPATH=/opt/local/man:$MANPATH
 export GEM_PATH=/usr/lib/ruby/gems/1.8
@@ -74,7 +75,7 @@ zstyle ':completion:*' squeeze-slashes true
 # global aliases
 alias -g H='| head'
 alias -g T='| tail'
-alias -g G='| grep'
+alias -g G='| ack'
 alias -g L="| less"
 alias -g M="| most"
 alias -g B="&|"
@@ -147,11 +148,16 @@ function ss { rails_command "server" "$@" }
 function ssp { rails_command "server" "-p" "$@"}
 function sc { rails_command "console" "$@" }
 function sg { rails_command "generate" "$@" }
+alias sp=spork
+alias r=rake
 
+alias vi=vim
 alias ep="vim ~/.zshrc && source ~/.zshrc"
 if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+  export GIT_EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
+export EDITOR="vim"
 alias mig="script/generate migration"
 alias srebase="ls > temp.file.for.stashing && git add temp.file.for.stashing && git sh save && git svn rebase && git sh pop && git rm -f temp.file.for.stashing"
 alias sdcommit="ls > temp.file.for.stashing && git add temp.file.for.stashing && git sh save && git svn dcommit && git sh pop && git rm -f temp.file.for.stashing"
