@@ -1,9 +1,8 @@
 export LC_ALL=en_US.UTF-8
-export PKGCONFIG_PATH="/usr/local/lib/pkgconfig:/opt/local/lib/pkgconfig"
-export PATH=$PATH:/opt/local/bin:/usr/local/mysql/bin/
+export PKGCONFIG_PATH="/usr/local/lib/pkgconfig"
+export PATH=$PATH:/usr/local/mysql/bin/
 export PATH=$PATH:~/.bin
 export SVN_EDITOR="vim"
-export MANPATH=/opt/local/man:$MANPATH
 export GEM_PATH=/usr/lib/ruby/gems/1.8
 # number of lines kept in history
 export HISTSIZE=10000
@@ -97,7 +96,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 # End Mercurial hacks
 
-export PATH=$PATH:/opt/local/bin:/usr/local/mysql-5.0.45-osx10.4-i686/bin/
+export PATH=$PATH:/usr/local/mysql-5.0.45-osx10.4-i686/bin/
 
 # ensures that deleting word on /path/to/file deletes only 'file', this removes the '/' from $WORDCHARS
 export WORDCHARS="${WORDCHARS:s#/#}"
