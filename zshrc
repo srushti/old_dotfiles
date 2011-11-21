@@ -1,7 +1,6 @@
 export LC_ALL=en_US.UTF-8
 export PKGCONFIG_PATH="/usr/local/lib/pkgconfig"
 export PATH=$PATH:/usr/local/mysql/bin/
-export PATH=$PATH:~/.bin
 export SVN_EDITOR="vim"
 export GEM_PATH=/usr/lib/ruby/gems/1.8
 # number of lines kept in history
@@ -143,8 +142,8 @@ function rails_command {
     script/$cmd "$@"
   fi
 }
-function ss { rails_command "server" "$@" }                                                                                                                                                                                             
-function ssp { rails_command "server" "-p" "$@"}
+function ss { rails_command "server" "$@" "--debugger" }                                                                                                                                                                                             
+function ssp { rails_command "server" "-p" "$@" "--debugger"}
 function sc { rails_command "console" "$@" }
 function sg { rails_command "generate" "$@" }
 alias sp=spork
