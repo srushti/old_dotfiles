@@ -1,8 +1,8 @@
 require 'rubygems'
 #rails3: be sure to include wirble and hirb in your Gemfile
-$:.unshift "~/.rvm/gems/ruby-1.9.2-p180@irb/gems/hirb-0.4.5/lib"
-$:.unshift "~/.rvm/gems/ruby-1.9.2-p180@irb/gems/wirble-0.1.3/lib"
-$:.unshift "~/.rvm/gems/ruby-1.9.2-p180@irb/gems/interactive_editor-0.0.8/lib"
+$:.unshift "~/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/hirb-0.5.0/lib"
+$:.unshift "~/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/wirble-0.1.3/lib"
+$:.unshift "~/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/interactive_editor-0.0.10/lib"
 require 'wirble'
 require 'hirb'
 require 'interactive_editor'
