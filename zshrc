@@ -3,6 +3,7 @@ export PKGCONFIG_PATH="/usr/local/lib/pkgconfig"
 export PATH=$PATH:/usr/local/mysql/bin/
 export SVN_EDITOR="vim"
 export GEM_PATH=/usr/lib/ruby/gems/1.8
+export JRUBY_OPTS=--1.9
 # number of lines kept in history
 export HISTSIZE=10000
 # number of lines saved in the history after logout
@@ -41,21 +42,17 @@ zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
 zstyle ':completion:*:functions' ignored-patterns '_*'
 # ignore what's already selected on line
 zstyle ':completion:*:(rm|kill|diff):*' ignore-line yes
-# hosts completion for some commands
-#local knownhosts
-#knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} ) 
-#zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 compctl -k hosts ftp lftp ncftp ssh w3m lynx links elinks nc telnet rlogin host
 compctl -k hosts -P '@' finger
 
-# manpage comletion
+# manpage completion
 man_glob () {
   local a
   read -cA a
   if [[ $a[2] = -s ]] then
-  reply=( ${^manpath}/man$a[3]/$1*$2(N:t:r) )
+    reply=( ${^manpath}/man$a[3]/$1*$2(N:t:r) )
   else
-  reply=( ${^manpath}/man*/$1*$2(N:t:r) )
+    reply=( ${^manpath}/man*/$1*$2(N:t:r) )
   fi
 }
 
@@ -91,19 +88,18 @@ alias .......='cd ../../../../../..'
 # Begin Mercurial Hacks
 # http://markmail.org/message/gyc6l3t7hxcvaft5
 
-export LC_ALL=en_US.UTF-8 
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 # End Mercurial hacks
 
 export PATH=$PATH:/usr/local/mysql-5.0.45-osx10.4-i686/bin/
 
 # ensures that deleting word on /path/to/file deletes only 'file', this removes the '/' from $WORDCHARS
-export WORDCHARS="${WORDCHARS:s#/#}"
 export WORDCHARS="${WORDCHARS:s#.#}"
 export CUCUMBER_COLORS=pending_param=magenta:failed_param=magenta:passed_param=magenta:skipped_param=magenta
 
 parse_git_branch() {
- 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 function title () {
@@ -142,7 +138,7 @@ function rails_command {
     script/$cmd "$@"
   fi
 }
-function ss { rails_command "server" "$@" "--debugger" }                                                                                                                                                                                             
+function ss { rails_command "server" "$@" "--debugger" }
 function ssp { rails_command "server" "-p" "$@" "--debugger"}
 function sc { rails_command "console" "$@" }
 function sg { rails_command "generate" "$@" }
@@ -156,7 +152,6 @@ if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
   export GIT_EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 export EDITOR="vim"
-alias mig="script/generate migration"
 alias srebase="ls > temp.file.for.stashing && git add temp.file.for.stashing && git sh save && git svn rebase && git sh pop && git rm -f temp.file.for.stashing"
 alias sdcommit="ls > temp.file.for.stashing && git add temp.file.for.stashing && git sh save && git svn dcommit && git sh pop && git rm -f temp.file.for.stashing"
 alias checkandinstall="bundle check || bundle install"
