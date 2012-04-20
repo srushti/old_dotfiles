@@ -1,6 +1,7 @@
 export LC_ALL=en_US.UTF-8
 export PKGCONFIG_PATH="/usr/local/lib/pkgconfig"
 export PATH=$PATH:/usr/local/mysql/bin/
+export PATH=$PATH:~/.bin/
 export SVN_EDITOR="vim"
 export GEM_PATH=/usr/lib/ruby/gems/1.8
 export JRUBY_OPTS=--1.9
@@ -88,7 +89,6 @@ alias .......='cd ../../../../../..'
 # Begin Mercurial Hacks
 # http://markmail.org/message/gyc6l3t7hxcvaft5
 
-export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 # End Mercurial hacks
 
@@ -108,7 +108,7 @@ function title () {
 }
 
 function precmd {
-	PS1="%{$fg[yellow]%}%~ %{$fg[green]%}$(parse_git_branch)%{$reset_color%}%{$fg[yellow]%}ϡ%{$reset_color%} "	
+	PS1="%{$fg[yellow]%}%~ %{$fg[green]%}$(parse_git_branch)%{$reset_color%}%{$fg[yellow]%}ϡ%{$reset_color%} "
 }
 
 typeset -U fpath
@@ -138,12 +138,13 @@ function rails_command {
     script/$cmd "$@"
   fi
 }
-function ss { rails_command "server" "$@" "--debugger" }
-function ssp { rails_command "server" "-p" "$@" "--debugger"}
+function ss { rails_command "server" "$@" }
+function ssp { rails_command "server" "-p" "$@"}
 function sc { rails_command "console" "$@" }
 function sg { rails_command "generate" "$@" }
 alias sp=spork
 alias r=rake
+alias b=bundle
 
 alias vi=vim
 alias ep="vim ~/.zshrc && source ~/.zshrc"
